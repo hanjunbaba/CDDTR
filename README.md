@@ -38,8 +38,8 @@
 在这项研究中，我们使用了来自II期LINCS-L1000数据的化学诱导的转录基因谱变化（GSE70138）。在我们的分析方案中，我们采用了978个Landmark基因的表达特征。<br><br>
 In this study, we used chemically induced transcriptional gene profile changes (GSE70138) from Phase II LINCS-L1000 data. In our analysis plan, we used the expression characteristics of 978 Landmark genes.
 ### 3.1数据集准备/Dataset preparation
-我们需要下载对应的数据集，登录： https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138 下载以下表格中数据集：<br>
-We need to log in to: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138 Download the dataset in the following table:
+我们需要下载对应的数据集，登录： https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138 和 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742 下载以下表格中数据集：<br>
+We need to log in to: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138 and https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742 Download the dataset in the following table:
 | 文件/Files |
 | --- |
 | GSE92742_Broad_LINCS_sig_info.txt |
