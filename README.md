@@ -20,7 +20,8 @@
 &emsp;&emsp;We follow the idea of DeepCellState, which utilizes the perturbation profile of one cell line to predict the perturbation profile of another cell line, and develop a method based on cross-domain auto encoders. The main goal of cross-domain auto encoders is to learn the data mapping relationships between two or more different domains, thereby achieving the ability to transform and transfer data from different domains. Currently, there are already many applications of cross-domain models, such as image style conversion, cross-language text translation, voice and speech conversion, and cross-modal data generation. In this article, we obtain similar features for two cell lines through their respective encoders, and then decode the obtained latent features into cell line-specific gene expression profiles through a specific decoder, thereby achieving the ability to predict gene expression profiles of one cell line using profiles of another. <br>
 
 ## 2.环境准备/Environmental preparation
-请在您的环境下安装如下：
+请在您的环境下安装如下：（注意，在安装tensorflow==2.4.0的时候会自动帮你安装好numpy，您可以卸载numpy来安装我们使用的版本，或者您可以更改当前numpy下对应的pandas版本）
+
     tensorflow-gpu==2.4.0
 	tensorflow==2.4.0
 	numpy==1.19.5
@@ -52,3 +53,4 @@ We need to log in to: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE7013
 >> cd 'Path to store CDDTR'/CDDTR/data
 >> python data_parser.py
 ```
+## 4.训练（测试）模型/Train（test）model
