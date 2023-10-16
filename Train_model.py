@@ -18,10 +18,10 @@ def get_options():
                         type=int, help='Set to 0 to start ten fold cross validation'
                                        '/ Set to 1 for 70% training and 30% for the test set'
                                        '/ Set to 2 to start training all common pert ids between two cell lines')
-    parser.add_argument('-p_epochs', default=1000,
+    parser.add_argument('-p_epochs', default=1,
                         type=int, help='Epochs of training'
                         )
-    parser.add_argument('-epochs', default=1000,
+    parser.add_argument('-epochs', default=1,
                         type=int, help='Epochs of pre training'
                         )
     parser.add_argument('-p_lr', default=1e-4,

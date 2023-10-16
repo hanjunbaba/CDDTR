@@ -52,9 +52,6 @@ if __name__ == '__main__':
     elif opt.fold == 1:
         folds = ['30percent']
     LINCS = opt.lincs_phase
-    pcc_all = 0
-    mse_all = 0
-    rmse_all = 0
     for cell_1 in cells:
         for cell_2 in cells:
             if cell_1 != cell_2:

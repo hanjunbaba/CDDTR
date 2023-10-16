@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import os
 class CellData:
     def __init__(self, test_fold, cell_types, pert_type, lincs_phase):
         common_perts, all_data_dic = self.prepare_data(cell_types, pert_type, lincs_phase)
