@@ -20,7 +20,8 @@
 &emsp;&emsp;We follow the idea of DeepCellState, which utilizes the perturbation profile of one cell line to predict the perturbation profile of another cell line, and develop a method based on cross-domain auto encoders. The main goal of cross-domain auto encoders is to learn the data mapping relationships between two or more different domains, thereby achieving the ability to transform and transfer data from different domains. Currently, there are already many applications of cross-domain models, such as image style conversion, cross-language text translation, voice and speech conversion, and cross-modal data generation. In this article, we obtain similar features for two cell lines through their respective encoders, and then decode the obtained latent features into cell line-specific gene expression profiles through a specific decoder, thereby achieving the ability to predict gene expression profiles of one cell line using profiles of another. <br>
 
 ## 2.环境准备/Environmental preparation
-请在您的环境下安装如下：（注意，在安装tensorflow==2.4.0的时候会自动帮你安装好numpy，您可以卸载numpy来安装我们使用的版本，或者您可以更改当前numpy下对应的pandas版本）
+请在您的环境下安装如下：（注意，在安装tensorflow==2.4.0的时候会自动帮你安装好numpy，您可以卸载numpy来安装我们使用的版本，或者您可以更改当前numpy下对应的pandas版本）<br>
+Please install the following in your environment: (Note that when installing tensorflow==2.4.0, it will automatically help you install numpy, you can uninstall numpy to install the version we use, or you can change the corresponding pandas version under the current numpy)
 
     tensorflow-gpu==2.4.0
 	tensorflow==2.4.0
@@ -30,7 +31,8 @@
 	scikit-learn==1.0.2
 	scipy==1.10.1
 	seaborn==0.12.1
-或者可以直接使用pip来配置我们的环境变量（requirements.txt在文件中已经给出）
+或者可以直接使用pip来配置我们的环境变量（requirements.txt在文件中已经给出）<br>
+Or you can directly use pip to configure our environment variables (requirements.txt already given in the file)
 ```python 
 >> pip install -r requirements.txt
 ```
@@ -48,9 +50,74 @@ We need to log in to: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE7013
 | GSE70138_Broad_LINCS_sig_info.txt |
 | GSE70138_Broad_LINCS_Level5_COMPZ_n118050x12328.gctx |
 ### 3.2制作数据文件/Create a data file
-将下载好的数据文件放到data文件夹下，运行data_parser.py，可在pycharm中直接运行，也可以在控制台输入（请注意，'Path to store CDDTR'是你存放CDDTR的路径）：
+将下载好的数据文件放到data文件夹下，运行data_parser.py，可在pycharm中直接运行，也可以在控制台输入（请注意，'Path to store CDDTR'是你存放CDDTR的路径）：<br>
+Put the downloaded data file under the data folder and run data_parser.py, either directly in pycharm or enter it in the console (please note that 'Path to store CDDTR' is the path where you store CDDTR):
 ```python  
 >> cd 'Path to store CDDTR'/CDDTR/data
 >> python data_parser.py
 ```
-## 4.训练（测试）模型/Train（test）model
+## 4.训练（测试）模型/Train（test）the model
+### 4.1模型训练/Train the model
+运行Train_model.py可以对我们的模型进行训练，可在pycharm中直接运行，也可以在控制台输入（请注意，'Path to store CDDTR'是你存放CDDTR的路径）：<br>
+Run Train_model.py can train our model, either directly in pycharm or in the console (note that 'Path to store CDDTR' is the path where you store CDDTR):
+```python  
+>> cd 'Path to store CDDTR'/CDDTR
+>> python Train_model.py
+```
+查看可调整的内容：<br>
+See what can be adjusted:
+```python  
+>> python Train_model.py -h
+```
+```python 
+optional arguments:
+  -h, --help            show this help message and exit
+  -cells CELLS          Train between pairs of cell lines stored in the list
+  -pert PERT            Perturbation type
+  -fold FOLD            Set 0 to start ten fold cross validation/ 1 for 70 training/ 2 to start training all
+  -p_epochs P_EPOCHS    Epochs of training
+  -epochs EPOCHS        Epochs of pre training
+  -p_lr P_LR            Learning rate of pre training
+  -lr LR                Learning rate of training
+  -p_batch_size P_BATCH_SIZE
+                        Batch size of pre training
+  -batch_size BATCH_SIZE
+                        Batch size of training
+  -input_dropout_rate INPUT_DROPOUT_RATE
+                        Dropout rate of inputs
+  -lincs_phase LINCS_PHASE
+                        Lincs phase
+  -save_dir_m SAVE_DIR_M
+                        The folder where the model parameters are stored
+  -save_dir_r SAVE_DIR_R
+                        The folder where the test results are stored
+  -pre_train PRE_TRAIN  Whether to use pre training
+  -result_txt RESULT_TXT
+                        The file name where the results are saved as txt, txt is saved in save_dir_r
+```
+默认值如下：<br>
+The default values are as follows：
+| name | default | type | name | default | type |
+| --- | --- | --- | --- | --- | --- |
+| -cells | ['A375', 'PC3'] | list | -batch_size | 128 | int |
+| -pert | 'trt_cp' | str | -input_dropout_rate | 0.1 | float |
+| -fold | 0 | int | -lincs_phase | '2' | str |
+| -p_epochs | 1000 | int | -save_dir_m | './model_weights' | str |
+| -epochs | 1000 | int | -save_dir_r | './result' | str |
+| -p_lr | 1e-4 | float | -pre_train | False | bool |
+| -lr | 2e-4 | float | -result_txt | 'result' | str |
+| -p_batch_size | 128 | int |   |  |  |
+
+*注意，如果训练不同的模型，请通过更改-save_dir_m将他们存储在不同的路径，否则新训练的模型会覆盖之前训练的模型。*
+<br>
+*Note that if you train different models, store them in different paths by changing -save_dir_m, otherwise the newly trained model will overwrite the previously trained model.*
+### 4.2模型测试/Test the model
+运行Test_model.py可以对我们的模型进行测试，可在pycharm中直接运行，也可以在控制台输入（请注意，'Path to store CDDTR'是你存放CDDTR的路径）：<br>
+Run Test_model.py can test our model, either directly in pycharm or in the console (note that 'Path to store CDDTR' is the path where you store CDDTR):
+```python  
+>> cd 'Path to store CDDTR'/CDDTR
+>> python Test_model.py
+```
+*注意，请通过-save_dir_m设置将要测试的模型存储位置，通过更改-save_dir_r来更改测试结果的存储位置，通过更改-result_txt来更改用于保存测试结果的txt文件名。*
+<br>
+*Note that set the storage location of the model to be tested by -save_dir_m, change the storage location of test results by changing -save_dir_r, and change the txt file name used to save test results by changing -result_txt.*
