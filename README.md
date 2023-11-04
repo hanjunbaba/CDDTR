@@ -35,7 +35,7 @@ Our CUDA is installed in a conda environment
 In this study, we used chemically induced transcriptional perturbation profiles (GSE70138) from Phase II LINCS-L1000 data. In our analysis plan, we used the expression characteristics of 978 Landmark genes. Replicate-collapsed differential expression signatures (Level 5) of the 978 landmark genes were adopted in our analysis protocol.
 ### 3.1 Dataset preparation
 Download the following data files from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138
-| 文件/Files |
+| Files |
 | --- |
 | GSE92742_Broad_LINCS_gene_info.txt |
 | GSE70138_Broad_LINCS_sig_info.txt |
