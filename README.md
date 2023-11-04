@@ -9,6 +9,7 @@
 ## 1.Introduction
 &emsp;Drug induced transcriptional perturbation can be used for drug repositioning, drug activity prediction and drug combination therapy, etc. Due to the vast combinations of drugs and cell lines, the exhaustive measurements of transcriptional perturbation responses become challenging. There are now some computational methods to predict drug responses, but the mapping between the drug responses of different cell lines is largely overlooked.<br>
 &emsp;We propose CDDTR, a cross-domain autoencoder based method, that uses the drug induced response of one cell line to predict the response of another cell line. For the perturbation profiles of over 1500 drugs on seven cell lines in Phase II LINCS data, the Pearson correlation coefficient (PCC) value of CDDTR increases by at least one time compared to baseline based on 10-fold cross-validation. Furthermore, for A375 and PC3 cells, CDDTR achieves significant performance improvements compared to other state-of-the-art methods. The latent features of transcriptional perturbations of A375 and PC3 cells extracted by the trained model have a 0.956 PCC, revealing the competence of CDDTR to predict the cross-cell type responses. By integrating perturbations from multiple cell lines and incorporating pre-training, the predictive performance of CDDTR can be further improved.<br>
+<img src="Figure_1.png"  align = "middle"  width="600" />
 ## 2.Environmental preparation
 The environment variables are shown as follows:
 
