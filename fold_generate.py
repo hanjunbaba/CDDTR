@@ -1,9 +1,4 @@
-#创建需要的fold
-import os
-import random
-
 from sklearn.model_selection import KFold
-
 from DATA import CellData
 
 def Split_Sets_Fold(total_fold, data):
