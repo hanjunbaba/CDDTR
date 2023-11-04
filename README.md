@@ -42,14 +42,14 @@ Download the following data files from https://www.ncbi.nlm.nih.gov/geo/query/ac
 | GSE70138_Broad_LINCS_Level5_COMPZ_n118050x12328.gctx |
 
 The downloaded zip file GSE70138_Broad_LINCS_gene_info_2017-03-06.txt.gz is unzipped to get file GSE92742_Broad_LINCS_gene_info.txt
-### 3.2Create a data file
+### 3.2 Create a data file
 Put the downloaded data files under the ‘data’ folder and run ‘data_parser.py’. Please note that 'Path to store CDDTR' is the path where you store CDDTR:
 ```python  
 >> cd 'Path to store CDDTR'/CDDTR/data
 >> python data_parser.py
 ```
 ## 4.Train and test the model
-### 4.1Train the mode
+### 4.1 Train the mode
 Run ‘Train_model.py’ to train the model. Note that 'Path to store CDDTR' is the path where you store CDDTR.
 ```python  
 >> cd 'Path to store CDDTR'/CDDTR
@@ -98,7 +98,7 @@ The default values are as follows：
 | -p_batch_size | 128 | int |   |  |  |
 
 *Note that if you train different models, store them in different paths by setting ‘-save_dir_m’, otherwise the newly trained model will overwrite the previously trained model.*
-### 4.2Test the model
+### 4.2 Test the model
 Run Test_model.py to test the model. Note that 'Path to store CDDTR' is the path where you store CDDTR.
 ```python  
 >> cd 'Path to store CDDTR'/CDDTR
