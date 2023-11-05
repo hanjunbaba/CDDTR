@@ -1,9 +1,9 @@
 # CDDTR
 ## CDDTR: Cross-domain autoencoders for predicting cell type specific drug-induced transcriptional responses
 
-*Welcome to get your visit!*
+*Welcome to your visit!*
 
-*The paper has not been received, and the address of the paper will be pasted here after acceptance.*
+*The manuscript is now submitted, and the address of the paper will be posted here after acceptance.*
 
 
 ## 1.Introduction
