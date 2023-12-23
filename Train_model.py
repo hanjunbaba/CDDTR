@@ -11,27 +11,27 @@ import argparse
 def get_options():
     parser = argparse.ArgumentParser()
     parser.add_argument('-cells', default=['A375', 'PC3'],
-                        type=list, help='Train between pairs of cell lines stored in the list')
+                        type=list, help='Train the model for a pair of cell lines stored in the list')
     parser.add_argument('-pert', default='trt_cp',
                         type=str, help='Perturbation type')
     parser.add_argument('-fold', default=0,
-                        type=int, help='set 0 to start ten fold cross validation'
-                                       '/ 1 to 70 percent training'
-                                       '/ 2 to start training all')
+                        type=int, help='Set 0 to start ten fold cross-validation'
+                                       '/ 1 for hold-out validation, i.e. with 70% drugs for training and 30% drugs for test'
+                                       '/ 2 to start training with all drugs')
     parser.add_argument('-p_epochs', default=1000,
                         type=int, help='Epochs of training'
                         )
     parser.add_argument('-epochs', default=1000,
-                        type=int, help='Epochs of pre training'
+                        type=int, help='Epochs of pre-training'
                         )
     parser.add_argument('-p_lr', default=1e-4,
-                        type=float, help='Learning rate of pre training'
+                        type=float, help='Learning rate of pre-training'
                         )
     parser.add_argument('-lr', default=2e-4,
                         type=float, help='Learning rate of training'
                         )
     parser.add_argument('-p_batch_size', default=128,
-                        type=int, help='Batch size of pre training'
+                        type=int, help='Batch size of pre-training'
                         )
     parser.add_argument('-batch_size', default=128,
                         type=int, help='Batch size of training'
@@ -49,10 +49,10 @@ def get_options():
                         type=str, help='The folder where the test results are stored'
                         )
     parser.add_argument('-pre_train', default=False,
-                        type=bool, help='Whether to use pre training'
+                        type=bool, help='Whether to use pre-training'
                         )
     parser.add_argument('-result_txt', default='result',
-                        type=str, help='The file name where the results are saved as txt, txt is saved in save_dir_r'
+                        type=str, help='Output file for saving results. The output file is saved in the directory save_dir_r'
                         )
 
     opt = parser.parse_args()
