@@ -49,7 +49,7 @@ Put the downloaded data files under the ‘data’ folder and run ‘data_parser
 >> python data_parser.py
 ```
 ## 4.Train and test the model
-### 4.1 Train the mode
+### 4.1 Train the model
 Run ‘Train_model.py’ to train the model. Note that 'Path to store CDDTR' is the path where you store CDDTR.
 ```python  
 >> cd 'Path to store CDDTR'/CDDTR
@@ -64,13 +64,13 @@ optional arguments:
   -h, --help            show this help message and exit
   -cells CELLS          Train between pairs of cell lines stored in the list
   -pert PERT            Perturbation type
-  -fold FOLD            Set 0 to start ten fold cross validation/ 1 for 70 training/ 2 to start training all
+  -fold FOLD            Set 0 to start ten fold cross validation/ 1 for 70 percent for training/ 2 to start training all
   -p_epochs P_EPOCHS    Epochs of training
-  -epochs EPOCHS        Epochs of pre training
-  -p_lr P_LR            Learning rate of pre training
+  -epochs EPOCHS        Epochs of pre-training
+  -p_lr P_LR            Learning rate of pre-training
   -lr LR                Learning rate of training
   -p_batch_size P_BATCH_SIZE
-                        Batch size of pre training
+                        Batch size of pre-training
   -batch_size BATCH_SIZE
                         Batch size of training
   -input_dropout_rate INPUT_DROPOUT_RATE
@@ -81,7 +81,7 @@ optional arguments:
                         The folder where the model parameters are stored
   -save_dir_r SAVE_DIR_R
                         The folder where the test results are stored
-  -pre_train PRE_TRAIN  Whether to use pre training
+  -pre_train PRE_TRAIN  Whether to use pre-training
   -result_txt RESULT_TXT
                         The file name where the results are saved as txt, txt is saved in save_dir_r
 ```
