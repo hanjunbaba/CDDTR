@@ -62,9 +62,9 @@ See what can be adjusted:
 ```python 
 optional arguments:
   -h, --help            show this help message and exit
-  -cells CELLS          Train between pairs of cell lines stored in the list
+  -cells CELLS          Train the model for a pair of cell lines stored in the list
   -pert PERT            Perturbation type
-  -fold FOLD            Set 0 to start ten fold cross validation/ 1 for 70 percent for training/ 2 to start training all
+  -fold FOLD            Set 0 to start ten fold cross-validation/ 1 for hold-out validation, i.e. with 70% drugs for training and 30% drugs for test/ 2 to start training with all drugs
   -p_epochs P_EPOCHS    Epochs of training
   -epochs EPOCHS        Epochs of pre-training
   -p_lr P_LR            Learning rate of pre-training
@@ -83,7 +83,7 @@ optional arguments:
                         The folder where the test results are stored
   -pre_train PRE_TRAIN  Whether to use pre-training
   -result_txt RESULT_TXT
-                        The file name where the results are saved as txt, txt is saved in save_dir_r
+                        Output file for saving results. The output file is saved in the directory save_dir_r
 ```
 The default values are as follows：
 | name | default | type | name | default | type |
