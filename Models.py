@@ -39,7 +39,9 @@ class Data_decoder(Model):
         self.dense_3 = Dense(978, activation='tanh')
 
     def call(self, inputs, **kwargs):
-        x = self.dropout_1(inputs)
+        x = self.dense_1(inputs)
+        x = self.leaky_relu_1(x)
+        x = self.dropout_1(x)
         x = self.dense_2(x)
         x = self.leaky_relu_2(x)
         x = self.dropout_2(x)
